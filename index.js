@@ -7,4 +7,9 @@ window.onload = function(){
         [5,2,3,7,1],
         [3,5,4,6,9]
     ]
+
+    for (let index = 0; index < matriz.length; index++) {
+        
+        console.log(index);
+    }
 }
