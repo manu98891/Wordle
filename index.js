@@ -9,12 +9,12 @@ window.onload = () => {
         [7,3,8,2,5]
     ]
 
-    for (let xRow = 0; xRow < matriz.length; xRow++) {
-        console.log(matriz[xRow])
-        for (let yColumn = 0; yColumn < 6; yColumn++) {
-            console.log(matriz[xRow][yColumn])
-        } 
-    }
+    for (let irow = 0; irow < matriz.length; irow++) {
+             console.log(matriz[irow]);
+           for (let icell = 0; icell < matriz.length; icell++) {
+           console.log(matriz[irow][icell]);            
+            }   
+        }
         
 
     var colores=[
@@ -26,12 +26,34 @@ window.onload = () => {
         [1,3,2,2,2]
     ]
 
+    // funcion para pintar los input 
+    // recorrer la matriz 
     function pintarTablero(){
         for (let i = 0; i < colores.length; i++) {
-            for (let j = 0; j < colores[i].length; j++) {
-                
+
+            for (let c = 0; c < colores[i].length;c++) {
+
+                var colorear = document.getElementById(`f${i}c${c}`);
+            
+                switch (colores[i][c]) {
+                    case 0:
+                        colorear.style.backgroundColor="white";
+                        break;
+                    case 1:
+                        colorear.style.backgroundColor="green";
+                        break;
+                    case 2:
+                        colorear.style.backgroundColor="yellow";
+                        break;
+                    case 3:
+                        colorear.style.backgroundColor="gray";
+                        break;
+                    default:
+                        colorear.style.backgroundColor="white";
+                        break;
+                }      
             }
         }
-        
     }
+    pintarTablero();
 }
