@@ -36,9 +36,9 @@ window.onload = () => {
                 var colorear = document.getElementById(`f${i}c${c}`);
             
                 switch (colores[i][c]) {
-                    case 0:
-                        colorear.style.backgroundColor="white";
-                        break;
+                    //case 0:
+                    //  colorear.style.backgroundColor="white";
+                    //    break;
                     case 1:
                         colorear.style.backgroundColor="green";
                         break;
