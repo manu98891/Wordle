@@ -1,0 +1,62 @@
+.form{
+    margin: 40px auto;
+    background-color: var(--blanco);
+    padding: 50px;
+    width: 90%;
+    max-width: 400px;
+    padding-bottom: 35px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px;
+    text-align: center;
+}
+
+.form fieldset{
+    margin: 5px;
+}
+
+.form fieldset input{
+    font-family: 'Roboto', sans-serif;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: transparent;
+    text-shadow: 0 0 0 black;
+}
+
+.btnGuardar{
+    width: 80%;
+    background-color: var(--violeta);
+    color:var(--blanco);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 12px 0px;
+    border: 1px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .3s;
+    margin-top: 30px;
+}
+
+.btnGuardar:hover{
+    color: var(--violeta);
+    background-color: var(--blanco);
+}
+
+.disabled{
+    cursor:not-allowed;
+}
+
+.gifLoad{
+    width: 30%;
+    height: 30%;
+}
+
+.nombre-cronometro{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
