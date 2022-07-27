@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/modal.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/wordle.css">
+
+        <script src="scripts/wordle.js"></script>
+        <title>Wordle</title>
+    </head>
+    <body>
+        <header>
+            <h1>Final LPPA</h1>
+            <nav>
+                <a class="btnNav">Inicio</a>
+                <a class="btnNav">Ganadores</a>
+                <a class="btnNav">Contacto</a>
+                <a class="btnNav" target="_blank" href="https://github.com/beberfabricio/Beber_Fabricio-Wordle">Código</a>
+            </nav>
+        </header>
+        <section class="modal" id="sctModal">
+            <div class="modal-container">
+                <h2 class="modal-title"></h2>
+                <img class="modal-img" src="" alt="Icono de éxito/guardado/error">
+                <p class="modal-text"></p>
+                <span class="modal-btn">Cerrar</span>
+                <span class="modal-btn hidden">Cargar partida</span>
+                <span class="modal-btn hidden">Nueva partida</span>
+            </div>
+        </section>
+        <p class="nombre-cronometro"></p>
+        <p class="nombre-cronometro">Iniciando cronómetro...</p>
+        <form class="form">
+            <fieldset id="row0">
+                <input maxlength="1" id="f0c0">
+                <input maxlength="1" id="f0c1">
+                <input maxlength="1" id="f0c2">
+                <input maxlength="1" id="f0c3">
+                <input maxlength="1" id="f0c4">
+            </fieldset>
+            <fieldset id="row1">
+                <input maxlength="1" id="f1c0">
+                <input maxlength="1" id="f1c1">
+                <input maxlength="1" id="f1c2">
+                <input maxlength="1" id="f1c3">
+                <input maxlength="1" id="f1c4">
+            </fieldset>
+            <fieldset id="row2">
+                <input maxlength="1" id="f2c0">
+                <input maxlength="1" id="f2c1">
+                <input maxlength="1" id="f2c2">
+                <input maxlength="1" id="f2c3">
+                <input maxlength="1" id="f2c4">
+            </fieldset>
+            <fieldset id="row3">
+                <input maxlength="1" id="f3c0">
+                <input maxlength="1" id="f3c1">
+                <input maxlength="1" id="f3c2">
+                <input maxlength="1" id="f3c3">
+                <input maxlength="1" id="f3c4">
+            </fieldset>
+            <fieldset id="row4">
+                <input maxlength="1" id="f4c0">
+                <input maxlength="1" id="f4c1">
+                <input maxlength="1" id="f4c2">
+                <input maxlength="1" id="f4c3">
+                <input maxlength="1" id="f4c4">
+            </fieldset>
+            <fieldset id="row5">
+                <input maxlength="1" id="f5c0">
+                <input maxlength="1" id="f5c1">
+                <input maxlength="1" id="f5c2">
+                <input maxlength="1" id="f5c3">
+                <input maxlength="1" id="f5c4">
+            </fieldset>
+            <input type="button" class="btnGuardar" value="Guardar partida">
+            <img class="gifLoad hidden" src="images/loading.gif" alt="loading logo">
+        </form>
+        <footer>
+            <p>
+                Final LPPA ISI UAI (Universidad Abierta Interamericana) 2022
+            </p>
+        </footer>
+    </body>
+</html>
