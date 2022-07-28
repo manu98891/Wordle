@@ -7,8 +7,6 @@ function obtenerElementos(){
     filas = document.querySelectorAll("fieldset");
     modal = document.getElementById("sctModal");
     modalClose = document.getElementsByClassName("modal-btn")[0];
-    btnCargarP = document.getElementsByClassName("modal-btn")[1];
-    btnNuevaP = document.getElementsByClassName("modal-btn")[2];
     modalTitle = document.getElementsByClassName("modal-title")[0];
     modalText = document.getElementsByClassName("modal-text")[0];
     modalImage = document.getElementsByClassName("modal-img")[0];
@@ -19,6 +17,7 @@ function obtenerElementos(){
     btnInicio = document.getElementsByClassName("btnNav")[0];
     btnGanadores = document.getElementsByClassName("btnNav")[1];
     btnContacto = document.getElementsByClassName("btnNav")[2];
+    btnCodigo = document.getElementsByClassName("btnNav")[3];
     if (localStorage.partidasGuardadas != null) {
         guardadasLS = JSON.parse(localStorage.partidasGuardadas);
     } else {
@@ -29,6 +28,7 @@ function obtenerElementos(){
         nroPartida = parseInt(sessionStorage.nroPartida);
         sessionStorage.removeItem("partida");
         sessionStorage.removeItem("nroPartida");
+        sessionStorage.nombre = partidaCargada.jugador;
     } else {
         partidaCargada = null;
         nroPartida;
@@ -71,7 +71,6 @@ var color = {
     GRIS: 3
 }
 
-// var partidaCargada = null;
 var nroPartida;
 var cronometro;
 var mins;
@@ -79,55 +78,26 @@ var segs;
 
 window.onload = () => {
     obtenerElementos();
-    // for (let i = 0; i < guardadasLS.length; i++) {
-    //     if (guardadasLS[i].jugador == sessionStorage.nombre) {
-    //         partidaCargada = guardadasLS[i];
-    //         nroPartida = i;
-    //     }
-    // }
-    // verificarPartida();
     if (partidaCargada == null) {
         crearPartidaNueva();
     } else {
         cargarPartidaGuardada();
     }
     inputs.forEach(x => x.onkeyup = saltarInput);
+    inputs.forEach(x => x.onkeydown = verificarBorrar);
     btnGuardar.onclick = (e) => {
         e.preventDefault();
         gifLoad.classList.toggle("hidden",false);
         setTimeout(guardarPartida,500);
     }
-    btnInicio.onclick = () => {
-        sessionStorage.clear();
-        location = "./index.html";
-    }
+    btnInicio.onclick = () => location = "./index.html";
     btnGanadores.onclick = () => location = "./winners.html";
     btnContacto.onclick = () => location = "./contact.html";
+    btnCodigo.onclick = () => location.href = "https://github.com/beberfabricio/Beber_Fabricio-Wordle";
 }
 
-// function verificarPartida() {
-//     if (partidaCargada != null) {
-//         mostrarModal("saved-game");
-//         btnCargarP.onclick = () => {
-//             cargarPartidaGuardada();
-//             modal.classList.remove("modal-show");
-//         }
-//         btnNuevaP.onclick = () => {
-//             crearPartidaNueva();
-//             modal.classList.remove("modal-show");
-//         }
-//     } else {
-//         crearPartidaNueva();
-//     }
-// }
-
 function crearPartidaNueva(){
-    // if (partidaCargada != null) {
-    //     guardadasLS.splice(nroPartida,1);
-    //     localStorage.partidasGuardadas = JSON.stringify(guardadasLS);
-    // }
     pNombre.innerHTML = `Hola ${sessionStorage.nombre}`;
-
     for (let i = 0; i < filas.length; i++) {
         if (i != 0) {
             filas[i].disabled = true;
@@ -156,11 +126,10 @@ function cargarPartidaGuardada(){
                     }
                     document.getElementById(`f${f}c0`).focus();
                 }
-            }else {
+            } else {
                 input.value = respuestas[f][c];
             }
         }
-
     }
     pintarTablero();
     mins = partidaCargada.minutos;
@@ -172,11 +141,23 @@ function cargarPartidaGuardada(){
 
 function saltarInput(e){
     if (e.keyCode === 32) { //SPACE
-        if (e.target.value.length === 1) {
+        if (e.target.value == " ") {
             e.target.value = "";
         }
         return;
     }
+    if (e.target.value.length == 1) {
+        let next = e.target.nextElementSibling;
+        if (!next) {
+            return;
+        }
+        if (next.tagName.toLowerCase() === "input") {
+            next.focus();
+        }
+    }
+}
+
+function verificarBorrar(e){
     if (e.keyCode === 8) { //BACKSPACE
         if (e.target.value.length === 1) {
             return;
@@ -188,15 +169,6 @@ function saltarInput(e){
         if (prev.tagName.toLowerCase() === "input") {
             prev.value = "";
             prev.focus();
-        }
-    }
-    if (e.target.value.length == 1) {
-        let next = e.target.nextElementSibling;
-        if (!next) {
-            return;
-        }
-        if (next.tagName.toLowerCase() === "input") {
-            next.focus();
         }
     }
 }
@@ -234,7 +206,11 @@ function guardarRespuesta(f){
     respuestas[f] = [];
     for (let c = 0; c < matriz[c].length; c++) {
         let input = document.getElementById(`f${f}c${c}`);
-        respuestas[f].push(input.value);
+        console.log(input.value);
+        if (input.value == "" || input.value == " ") {
+            return;
+        }
+        respuestas[f].push(input.value.toLowerCase());
     }
     revisarResultado(respuestas[f],f);
 }
@@ -244,16 +220,13 @@ function revisarResultado(respuesta,f){
     var letrasCorrectas = 0;
     palabraArray.forEach(function(x,i){
         if (x === respuesta[i]) {
-            colorTablero[f][i] = 1;
+            colorTablero[f][i] = color.VERDE;
             letrasCorrectas++;
-        }else
-        {
-            if (palabraArray.includes(respuesta[i])) {
-                colorTablero[f][i] = 2;
-            }else{
-                colorTablero[f][i] = 3;
+        } else if (palabraArray.includes(respuesta[i])) {
+            colorTablero[f][i] = color.AMARILLO;
+            } else {
+            colorTablero[f][i] = color.GRIS;
             }
-        }
     })
     pintarTablero();
     siguienteFila(f,letrasCorrectas);
@@ -283,10 +256,6 @@ function mostrarModal(resultado){
             modalTitle.innerHTML = "¡Ganaste!"
             modalTitle.style.color = "blue";
             modalText.innerHTML = "Acertaste! La palabra era " + palabra.toUpperCase() + ", tu partida ha quedado registrada.";
-            modalImage.classList.remove("hidden");
-            modalClose.classList.remove("hidden");
-            btnCargarP.classList.add("hidden");
-            btnNuevaP.classList.add("hidden");
             modal.classList.add("modal-show");
             guardarPartidaGanada();
         break;
@@ -295,10 +264,6 @@ function mostrarModal(resultado){
             modalTitle.innerHTML = "¡Perdiste!"
             modalTitle.style.color = "red";
             modalText.innerHTML = "La palabra era " + palabra.toUpperCase();
-            modalImage.classList.remove("hidden");
-            modalClose.classList.remove("hidden");
-            btnCargarP.classList.add("hidden");
-            btnNuevaP.classList.add("hidden");
             modal.classList.add("modal-show");
         break;
         case "save":
@@ -306,14 +271,10 @@ function mostrarModal(resultado){
             modalTitle.innerHTML = "¡Partida guardada!"
             modalTitle.style.color = "green";
             if (partidaCargada == null) {
-                modalText.innerHTML = sessionStorage.nombre + ", tu partida ha sido guardada. Puedes cargarla ingresando tu nombre nuevamente.";
+                modalText.innerHTML = sessionStorage.nombre + ", tu partida ha sido guardada. Puedes cargarla desde el menú de inicio.";
             } else {
-                modalText.innerHTML = partidaCargada.jugador + ", tu partida ha sido guardada. Puedes cargarla ingresando tu nombre nuevamente.";
+                modalText.innerHTML = partidaCargada.jugador + ", tu partida ha sido guardada. Puedes cargarla desde el menú de inicio.";
             }
-            modalImage.classList.remove("hidden");
-            modalClose.classList.remove("hidden");
-            btnCargarP.classList.add("hidden");
-            btnNuevaP.classList.add("hidden");
             modal.classList.add("modal-show");
         break;
         case "error":
@@ -322,21 +283,6 @@ function mostrarModal(resultado){
             modalTitle.innerHTML = "¡Error!"
             modalTitle.style.color = "red";
             modalText.innerHTML = "Aún no hay nada para guardar! Por favor, comienza a jugar para poder guardar la partida.";
-            modalImage.classList.remove("hidden");
-            modalClose.classList.remove("hidden");
-            btnCargarP.classList.add("hidden");
-            btnNuevaP.classList.add("hidden");
-            modal.classList.add("modal-show");
-        break;
-        case "saved-game":
-            clearInterval(cronometro);
-            modalTitle.innerHTML = "¡Partida encontrada!"
-            modalTitle.style.color = "green";
-            modalText.innerHTML = `Hola ${sessionStorage.nombre}, hemos encontrado una partida que has guardado anteriormente. ¿Quieres cargarla o quieres iniciar una nueva?`;
-            modalImage.classList.add("hidden");
-            modalClose.classList.add("hidden");
-            btnCargarP.classList.remove("hidden");
-            btnNuevaP.classList.remove("hidden");
             modal.classList.add("modal-show");
         break;
     }

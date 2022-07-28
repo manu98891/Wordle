@@ -1,10 +1,17 @@
+textarea{
+    resize:none;
+}
+
+.hidden{
+    display:none;
+}
+
 .form{
     background-color: var(--blanco);
-    margin: 100px auto;
+    margin: 50px auto;
     width: 90%;
     max-width: 400px;
     padding: 50px;
-    padding-bottom: 25px;
     border-radius: 10px;
     box-shadow: 0px 5px 10px;
     text-align: center;
@@ -12,19 +19,19 @@
 
 .form-title{
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 8px;
     font-weight: 700;
-    color: var(--negro)
 }
 
 .form-container{
     margin-top: 50px;
     display:flex;
+    flex-wrap:wrap;
 }
 
 .form-group{
     width: 100%;
-    position: relative;
+    position:relative;
     margin-bottom: 30px;
 }
 
@@ -88,62 +95,4 @@
 .form-btn:hover{
     color: var(--violeta);
     background-color: var(--blanco);
-}
-
-.info{
-    margin-top: 5px;
-    text-align: center;
-    font-style: oblique;
-    color: gray;
-}
-
-#fecha,#hora,#nombre{
-    font-weight: bold;
-}
-
-table{
-    text-align: left;
-    background-color: var(--blanco);
-    border-collapse: collapse;
-    width: 95%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-th,td{
-    padding: 10px;
-    border: solid 1px var(--negro);
-}
-
-thead{
-    font-weight: 700;
-    background-color: var(--violeta);
-    border-bottom: solid 5px var(--violetaOscuro);
-    color:var(--blanco);
-}
-
-tr:nth-child(even){
-    background-color: var(--gris);
-}
-
-tr:hover td{
-    background-color: var(--violetaClaro);
-    color:var(--blanco);
-    cursor:pointer;
-}
-
-.text{
-    padding: 20px;
-    border-radius: 15px;
-    color:var(--negro);
-    background-color: var(--gris);
-    font-size: 35px;
-    font-weight: 700;
-    margin-top: 25px;
-}
-
-.gif{
-    width: 160px;
-    margin-top: 75px;
-    text-align: center;
 }
