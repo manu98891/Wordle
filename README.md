@@ -29,3 +29,5 @@ enviar se abra la herramienta de envío de emails predeterminada del sistema ope
 - Validaciones del formulario de contacto (nombre requerido alfanumérico, mail requerido válido y
 mensaje con más de 5 caracteres).
 
+# Pages
+
