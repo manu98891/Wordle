@@ -1,6 +1,6 @@
 .form{
     margin: 40px auto;
-    background-color: var(--blanco);
+    background-color: #ffffff;
     padding: 50px;
     width: 90%;
     max-width: 400px;
@@ -15,7 +15,6 @@
 }
 
 .form fieldset input{
-    font-family: 'Roboto', sans-serif;
     width: 50px;
     height: 50px;
     font-size: 40px;
@@ -27,9 +26,8 @@
 
 .btnGuardar{
     width: 80%;
-    background-color: var(--violeta);
-    color:var(--blanco);
-    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color:#ffffff;
     font-weight: 300;
     font-size: 16px;
     padding: 12px 0px;
@@ -41,17 +39,12 @@
 }
 
 .btnGuardar:hover{
-    color: var(--violeta);
-    background-color: var(--blanco);
+    color: #12a5af;
+    background-color:#ffffff ;
 }
 
 .disabled{
     cursor:not-allowed;
-}
-
-.gifLoad{
-    width: 30%;
-    height: 30%;
 }
 
 .nombre-cronometro{

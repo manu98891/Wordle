@@ -1,13 +1,12 @@
 function obtenerElementos(){
     btnJugar = document.getElementById("btnJugar");
     nombre = document.getElementById("txtNombre");
-    gifLoad = document.getElementsByClassName("form-img")[0];
     modal = document.getElementById("sctModal");
     modalTable = document.getElementById("table");
     modalCancelar = document.getElementsByClassName("modal-btn")[0];
     modalTitle = document.getElementsByClassName("modal-title")[0];
     modalText = document.getElementsByClassName("modal-text")[0];
-    modalLoading = document.getElementsByClassName("gif")[0];
+    //modalLoading = document.getElementsByClassName("gif")[0];
     modalLoadingT = document.getElementsByClassName("text")[0];
     btnInicio = document.getElementsByClassName("btnNav")[0];
     btnGanadores = document.getElementsByClassName("btnNav")[1];
@@ -33,11 +32,10 @@ window.onload = () => {
             modalTable.classList.add("hidden");
             modalTitle.classList.add("hidden");
             modalCancelar.classList.add("hidden");
-            modalLoading.classList.remove("hidden");
+            //modalLoading.classList.remove("hidden");
             modalLoadingT.classList.remove("hidden");
             setTimeout(mostrarPartidasGuardadas,500);
         } else if (validarCampos()) {
-            gifLoad.classList.remove("hidden");
             setTimeout(jugar,500);
         }
     }
@@ -128,7 +126,7 @@ function noExistenPartidas(){
 }
 
 function existenPartidas(){
-    modalLoading.classList.add("hidden");
+    //modalLoading.classList.add("hidden");
     modalLoadingT.classList.add("hidden");
     modalTitle.innerHTML = "Partidas guardadas";
     modalTitle.classList.remove("hidden");

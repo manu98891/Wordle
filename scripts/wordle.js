@@ -11,7 +11,6 @@ function obtenerElementos(){
     modalText = document.getElementsByClassName("modal-text")[0];
     modalImage = document.getElementsByClassName("modal-img")[0];
     btnGuardar = document.getElementsByClassName("btnGuardar")[0];
-    gifLoad = document.getElementsByClassName("gifLoad")[0];
     pNombre = document.getElementsByClassName("nombre-cronometro")[0];
     pCronometro = document.getElementsByClassName("nombre-cronometro")[1];
     btnInicio = document.getElementsByClassName("btnNav")[0];
@@ -87,7 +86,6 @@ window.onload = () => {
     inputs.forEach(x => x.onkeydown = verificarBorrar);
     btnGuardar.onclick = (e) => {
         e.preventDefault();
-        gifLoad.classList.toggle("hidden",false);
         setTimeout(guardarPartida,500);
     }
     btnInicio.onclick = () => location = "./index.html";
@@ -252,7 +250,6 @@ function siguienteFila(f,letrasCorrectas){
 function mostrarModal(resultado){
     switch (resultado) {
         case "win":
-            modalImage.src = "images/success_icon.png";
             modalTitle.innerHTML = "¡Ganaste!"
             modalTitle.style.color = "blue";
             modalText.innerHTML = "Acertaste! La palabra era " + palabra.toUpperCase() + ", tu partida ha quedado registrada.";
@@ -260,14 +257,12 @@ function mostrarModal(resultado){
             guardarPartidaGanada();
         break;
         case "lose":
-            modalImage.src = "images/error_icon.png";
             modalTitle.innerHTML = "¡Perdiste!"
             modalTitle.style.color = "red";
             modalText.innerHTML = "La palabra era " + palabra.toUpperCase();
             modal.classList.add("modal-show");
         break;
         case "save":
-            modalImage.src = "images/saved_icon.png";
             modalTitle.innerHTML = "¡Partida guardada!"
             modalTitle.style.color = "green";
             if (partidaCargada == null) {
@@ -279,7 +274,6 @@ function mostrarModal(resultado){
         break;
         case "error":
             clearInterval(cronometro);
-            modalImage.src = "images/error_icon.png";
             modalTitle.innerHTML = "¡Error!"
             modalTitle.style.color = "red";
             modalText.innerHTML = "Aún no hay nada para guardar! Por favor, comienza a jugar para poder guardar la partida.";
@@ -333,7 +327,6 @@ function detenerJuego(){
 }
 
 function guardarPartida(){
-    gifLoad.classList.toggle("hidden",true);
     if (JSON.stringify(respuestas) === JSON.stringify(matriz)) {
         mostrarModal("error");
         return;

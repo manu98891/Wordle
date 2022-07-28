@@ -110,18 +110,17 @@ th,td{
 
 thead{
     font-weight: 700;
-    background-color: var(--violeta);
-    border-bottom: solid 5px var(--violetaOscuro);
-    color:var(--blanco);
+    background-color: #000000;
+    color:#ffffff;
 }
 
 tr:nth-child(even){
-    background-color: var(--gris);
+    background-color: #fafafa;
 }
 
 tr:hover td{
-    background-color: var(--violetaClaro);
-    color:var(--blanco);
+    background-color: #12a5af;
+    color:#ffffff;
     cursor:pointer;
 }
 
@@ -129,7 +128,7 @@ tr:hover td{
     padding: 20px;
     border-radius: 15px;
     color:#000000;
-    background-color: var(--gris);
+    background-color: gray;
     font-size: 35px;
     font-weight: 700;
     margin-top: 25px;

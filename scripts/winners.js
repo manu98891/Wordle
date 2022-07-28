@@ -26,7 +26,7 @@ var color = {
 
 window.onload = () => {
     obtenerElementos();
-    loading.classList.remove("hidden");
+    //loading.classList.remove("hidden");
     texto.classList.remove("hidden");
     sessionStorage.clear();
     btnInicio.onclick = () => location = "./index.html";
@@ -39,13 +39,13 @@ window.onload = () => {
 function llenarTabla(){
     if (ganadasLS == null) {
         titulo.innerHTML = "Aún no se han registrado ganadores :/";
-        loading.classList.add("hidden");
+        //loading.classList.add("hidden");
         texto.classList.add("hidden");
         titulo.classList.remove("hidden");
         return;
     }
     titulo.innerHTML = "Ganadores";
-    loading.classList.add("hidden");
+    //loading.classList.add("hidden");
     texto.classList.add("hidden");
     titulo.classList.remove("hidden");
     let head = `
