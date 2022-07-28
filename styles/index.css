@@ -1,5 +1,5 @@
 .form{
-    background-color: var(--blanco);
+    background-color: #fafafa;
     margin: 100px auto;
     width: 90%;
     max-width: 400px;
@@ -14,7 +14,7 @@
     font-size: 32px;
     margin-bottom: 40px;
     font-weight: 700;
-    color: var(--negro)
+    color: #000000;
 }
 
 .form-container{
@@ -32,13 +32,12 @@
     width: 100%;
     background: none;
     margin-bottom: 8px;
-    color: rgb(112, 108, 108);
+    color: #000000;
     font-size: 16px;
     padding: 5px 3px;
     border:none;
     outline:none;
-    border-bottom: 1px solid rgb(87, 87, 87, 0.49);
-    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid #000000;
 }
 
 .form-txt:focus + .form-lblTxt, .form-txt:not(:placeholder-shown) + .form-lblTxt{
@@ -47,7 +46,7 @@
 }
 
 .form-lblTxt{
-    color: var(--violeta);
+    color: #000000;
     position:absolute;
     font-size: 15px;
     top:0;
@@ -60,20 +59,14 @@
 
 .form-lblError{
     width: 100%;
-    color:rgb(255, 0, 0);
+    color: #ff0000;;
     text-align: center;
-}
-
-.form-img{
-    width: 30%;
-    height: 30%;
 }
 
 .form-btn{
     width: 100%;
-    background-color: var(--violeta);
-    color:var(--blanco);
-    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color:#ffffff;
     font-weight: 300;
     font-size: 16px;
     padding: 12px 0px;
@@ -86,8 +79,8 @@
 }
 
 .form-btn:hover{
-    color: var(--violeta);
-    background-color: var(--blanco);
+    color: #12a5af;;
+    background-color: #ffffff;
 }
 
 .info{
@@ -103,7 +96,7 @@
 
 table{
     text-align: left;
-    background-color: var(--blanco);
+    background-color: #ffffff;
     border-collapse: collapse;
     width: 95%;
     margin-top: 10px;
@@ -112,7 +105,7 @@ table{
 
 th,td{
     padding: 10px;
-    border: solid 1px var(--negro);
+    border: solid 1px #000000;
 }
 
 thead{
@@ -135,15 +128,9 @@ tr:hover td{
 .text{
     padding: 20px;
     border-radius: 15px;
-    color:var(--negro);
+    color:#000000;
     background-color: var(--gris);
     font-size: 35px;
     font-weight: 700;
     margin-top: 25px;
-}
-
-.gif{
-    width: 160px;
-    margin-top: 75px;
-    text-align: center;
 }
