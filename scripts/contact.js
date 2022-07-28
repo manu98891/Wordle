@@ -23,7 +23,7 @@ window.onload = () => {
     btnInicio.onclick = () => location = "./index.html";
     btnGanadores.onclick = () => location = "./winners.html";
     btnContacto.onclick = () => location = "./contact.html";
-    btnCodigo.onclick = () => location.href = "https://github.com/beberfabricio/Beber_Fabricio-Wordle";
+    btnCodigo.onclick = () => location.href = "https://github.com/manu98891/Wordle";
 }
 
 function validarCampos() {

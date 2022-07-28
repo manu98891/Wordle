@@ -6,7 +6,6 @@ function obtenerElementos(){
     modalCancelar = document.getElementsByClassName("modal-btn")[0];
     modalTitle = document.getElementsByClassName("modal-title")[0];
     modalText = document.getElementsByClassName("modal-text")[0];
-    //modalLoading = document.getElementsByClassName("gif")[0];
     modalLoadingT = document.getElementsByClassName("text")[0];
     btnInicio = document.getElementsByClassName("btnNav")[0];
     btnGanadores = document.getElementsByClassName("btnNav")[1];
@@ -42,7 +41,7 @@ window.onload = () => {
     btnInicio.onclick = () => location = "./index.html";
     btnGanadores.onclick = () => location = "./winners.html";
     btnContacto.onclick = () => location = "./contact.html";
-    btnCodigo.onclick = () => location.href = "https://github.com/beberfabricio/Beber_Fabricio-Wordle";
+    btnCodigo.onclick = () => location.href = "https://github.com/manu98891/Wordle";
 }
 
 function jugar(){

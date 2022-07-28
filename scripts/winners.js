@@ -3,7 +3,6 @@ function obtenerElementos(){
     btnGanadores = document.getElementsByClassName("btnNav")[1];
     btnContacto = document.getElementsByClassName("btnNav")[2];
     btnCodigo = document.getElementsByClassName("btnNav")[3];
-    loading = document.getElementsByClassName("gif")[0];
     texto = document.getElementsByClassName("text")[0];
     modal = document.getElementById("sctModal");
     modalClose = document.getElementsByClassName("modal-btn")[0];
@@ -26,26 +25,23 @@ var color = {
 
 window.onload = () => {
     obtenerElementos();
-    //loading.classList.remove("hidden");
     texto.classList.remove("hidden");
     sessionStorage.clear();
     btnInicio.onclick = () => location = "./index.html";
     btnGanadores.onclick = () => location = "./winners.html";
     btnContacto.onclick = () => location = "./contact.html";
-    btnCodigo.onclick = () => location.href = "https://github.com/beberfabricio/Beber_Fabricio-Wordle";
+    btnCodigo.onclick = () => location.href = "https://github.com/manu98891/Wordle";
     setTimeout(llenarTabla, 1000);
 }
 
 function llenarTabla(){
     if (ganadasLS == null) {
         titulo.innerHTML = "Aún no se han registrado ganadores :/";
-        //loading.classList.add("hidden");
         texto.classList.add("hidden");
         titulo.classList.remove("hidden");
         return;
     }
     titulo.innerHTML = "Ganadores";
-    //loading.classList.add("hidden");
     texto.classList.add("hidden");
     titulo.classList.remove("hidden");
     let head = `

@@ -35,7 +35,7 @@ function obtenerElementos(){
 
 }
 
-let palabra = "holas";
+let palabra = "limon";
 
 var matriz = [
     [0,0,0,0,0],
@@ -91,7 +91,7 @@ window.onload = () => {
     btnInicio.onclick = () => location = "./index.html";
     btnGanadores.onclick = () => location = "./winners.html";
     btnContacto.onclick = () => location = "./contact.html";
-    btnCodigo.onclick = () => location.href = "https://github.com/beberfabricio/Beber_Fabricio-Wordle";
+    btnCodigo.onclick = () => location.href = "https://github.com/manu98891/Wordle";
 }
 
 function crearPartidaNueva(){
@@ -252,23 +252,23 @@ function mostrarModal(resultado){
         case "win":
             modalTitle.innerHTML = "¡Ganaste!"
             modalTitle.style.color = "blue";
-            modalText.innerHTML = "Acertaste! La palabra era " + palabra.toUpperCase() + ", tu partida ha quedado registrada.";
+            modalText.innerHTML = "Bien hecho la palabra era " + palabra.toUpperCase() + ", ahora figuras en la tabla de ganadores.";
             modal.classList.add("modal-show");
             guardarPartidaGanada();
         break;
         case "lose":
             modalTitle.innerHTML = "¡Perdiste!"
             modalTitle.style.color = "red";
-            modalText.innerHTML = "La palabra era " + palabra.toUpperCase();
+            modalText.innerHTML = "La palabra era " + palabra.toUpperCase() + ". Vuelve a intentarlo en otra ocacion.";
             modal.classList.add("modal-show");
         break;
         case "save":
             modalTitle.innerHTML = "¡Partida guardada!"
             modalTitle.style.color = "green";
             if (partidaCargada == null) {
-                modalText.innerHTML = sessionStorage.nombre + ", tu partida ha sido guardada. Puedes cargarla desde el menú de inicio.";
+                modalText.innerHTML = sessionStorage.nombre + ", se guardo tu partica. Para retomarla tienes que ir al menu de inicio.";
             } else {
-                modalText.innerHTML = partidaCargada.jugador + ", tu partida ha sido guardada. Puedes cargarla desde el menú de inicio.";
+                modalText.innerHTML = partidaCargada.jugador + ", se guardo tu partica. Para retomarla tienes que ir al menu de inicio.";
             }
             modal.classList.add("modal-show");
         break;
@@ -276,7 +276,7 @@ function mostrarModal(resultado){
             clearInterval(cronometro);
             modalTitle.innerHTML = "¡Error!"
             modalTitle.style.color = "red";
-            modalText.innerHTML = "Aún no hay nada para guardar! Por favor, comienza a jugar para poder guardar la partida.";
+            modalText.innerHTML = "No se puede guardar una partida que no esta empezada.";
             modal.classList.add("modal-show");
         break;
     }
