@@ -10,8 +10,7 @@
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
-    background-color: rgb(191, 191, 235);
+    background-color: #fafafa;
 }
 
 header{
@@ -22,13 +21,13 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--violeta);
+    background-color: #000000;
 }
 
 header h1{
     font-weight: 700;
     font-size: 40px;
-    color:var(--blanco);
+    color: #ffffff;
 }
 
 header nav{
@@ -42,12 +41,12 @@ header nav .btnNav{
     text-decoration: none;
     font-weight: 400;
     font-size: 22px;
-    color:var(--negro);
+    color:#ffffff;
     transition: color .3s;
 }
 
 header nav .btnNav:hover{
-    color: var(--blanco);
+    color: #12a5af;
     cursor: pointer;
 }
 
@@ -62,7 +61,7 @@ footer{
 }
 
 footer p{
-    color: black;
+    color: #000000;
     font-weight: 700;
     font-style: oblique;
     text-align: center;
@@ -73,15 +72,15 @@ footer p{
 }
 
 .verde{
-    background-color: lightgreen;
+    background-color: #00ff59;
 }
 
 .amarillo{
-    background-color: orange;
+    background-color: #e5ff00;
 }
 
 .gris{
-    background-color: grey;
+    background-color: #555555;
 }
 
 .blanco{
