@@ -17,7 +17,7 @@ window.onload = () => {
     submit.onclick = (e) => {
         e.preventDefault();
         if (validarCampos()) {
-            location.href = `mailto:beberfabricio@gmail.com?subject=Mensaje de ${nombre.value}&body=${mensaje.value}`;
+            location.href = `mailto:manueulosada@gmail.com?subject=Mensaje de ${nombre.value}&body=${mensaje.value}`;
         }
     }
     btnInicio.onclick = () => location = "./index.html";

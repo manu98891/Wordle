@@ -52,7 +52,7 @@ textarea{
 }
 
 .form-lblTxt{
-    color: var(--violeta);
+    color: #000000;
     position:absolute;
     font-size: 15px;
     top:0;
