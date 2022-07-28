@@ -1,11 +1,8 @@
 # Wordle
 Juego para el final de LPPA. Para este examen final es nesesario realizar una copia del juego wordle.
 
-# Imagen del juego
-![Imagen](https://www.google.com/search?q=Wordle&rlz=1C1GCEA_enAR988AR988&sxsrf=ALiCzsb04usRm2s0o725B7VnvKaoBqGzsQ:1659033163095&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi39OySnJz5AhU6vJUCHSs6A7IQ_AUoAXoECAIQBA&biw=1920&bih=969&dpr=1#imgrc=Agd8dqWpuplgQM)
-
 # Criterios para aprobar
-Código prolijo.
+- Código prolijo.
 - Consistencia en comentarios, commits y estilos de código.
 - Diseño responsivo, estética agradable del juego y de la web (usando Flexbox).
 - Juego completamente funcional siguiendo las reglas mencionadas en wikipedia.
@@ -30,4 +27,4 @@ enviar se abra la herramienta de envío de emails predeterminada del sistema ope
 mensaje con más de 5 caracteres).
 
 # Pages
-
+https://manu98891.github.io/Wordle/
