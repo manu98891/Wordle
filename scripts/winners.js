@@ -36,12 +36,12 @@ window.onload = () => {
 
 function llenarTabla(){
     if (ganadasLS == null) {
-        titulo.innerHTML = "Aún no se han registrado ganadores :/";
+        titulo.innerHTML = "Aún no se han ganadores";
         texto.classList.add("hidden");
         titulo.classList.remove("hidden");
         return;
     }
-    titulo.innerHTML = "Ganadores";
+    titulo.innerHTML = "ESTOS SON LOS GANADORES";
     texto.classList.add("hidden");
     titulo.classList.remove("hidden");
     let head = `
