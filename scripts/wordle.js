@@ -18,11 +18,13 @@ function obtenerElementos(){
     btnContacto = document.getElementsByClassName("btnNav")[2];
     btnCodigo = document.getElementsByClassName("btnNav")[3];
     if (localStorage.partidasGuardadas != null) {
+        //createBoard(); // borrar en caso de que no funciones
         guardadasLS = JSON.parse(localStorage.partidasGuardadas);
     } else {
         guardadasLS = [];
     }
     if (sessionStorage.partida != null) {
+        //createBoard(); // borrar en caso de que no funciones
         partidaCargada = JSON.parse(sessionStorage.partida);
         nroPartida = parseInt(sessionStorage.nroPartida);
         sessionStorage.removeItem("partida");
@@ -77,6 +79,7 @@ var segs;
 
 window.onload = () => {
     obtenerElementos();
+    
     if (partidaCargada == null) {
         crearPartidaNueva();
     } else {
