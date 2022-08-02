@@ -37,7 +37,10 @@ function obtenerElementos(){
 
 }
 
-let palabra = "limon";
+//let palabra = "limon";
+
+var palabras =["claro","limon","autos","manco","limas","rodeo","avion","aires","estan","estas","muela","toman","tomar","topes","tacho","turbo","unete","uvula","usalo","mares","tango"]
+let palabra = palabras[Math.floor(Math.random()*palabras.length)];
 
 var matriz = [
     [0,0,0,0,0],
@@ -82,6 +85,7 @@ window.onload = () => {
     
     if (partidaCargada == null) {
         crearPartidaNueva();
+        console.log(palabra)
     } else {
         cargarPartidaGuardada();
     }
@@ -384,54 +388,4 @@ function guardarPartidaGanada(){
         guardadasLS.splice(nroPartida,1);
         localStorage.partidasGuardadas = JSON.stringify(guardadasLS);
     }
-}
-
-// Creación de tablero //
-
-const createBoard = async () => {
-    let loadedGame = localStorage.getItem("loadedGame");
-    if(loadedGame){
-        loadGame(loadedGame);
-    }
-    else{
-        await getPalabra();
-    }
-    
-    let form = document.getElementById("form");
-    for (let i = 0; i < game.tries; i++) {
-        let row = document.createElement("fieldset");
-        row.classList.add('row');
-        row.id = `row${i}`;
-        createInputs(row)
-        form.appendChild(row);
-    }
-    if(loadedGame){
-        fillValuesFromGame();
-    }
-}
-
-const createInputs = (row) => {
-    for (let i = 0; i < game.wordLength; i++) {
-        let input = document.createElement("input");
-        input.maxLength = 1;
-        if(row.id !== "row0"){
-            input.disabled = true;
-        }
-        
-        row.appendChild(input);
-    }
-}
-
-const getPalabra = async () => {
-    let url = "./Data/words.json";
-    let words = await makeRequest("GET", url);
-    var word = words[Math.floor(Math.random() * words.length)];
-    game.word = word;
-    game.wordLength = word.length;
-}
-
-const makeRequest = async (method, url) => {
-    return await fetch(url, { method: method})
-        .then(response => response.json())
-        .catch(error => console.log(error));
 }
